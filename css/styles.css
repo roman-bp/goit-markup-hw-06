@@ -81,12 +81,23 @@ img {
 
 
 
-
+/* 
 .hidden {
     font-size: 0px;
     display: none;
+} */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
-
 
 /*--------------------------header-----------------------------------*/
 .header {
@@ -297,6 +308,7 @@ img {
 }
 
 .hero-btn-text {
+    cursor: pointer;
     text-align: center;
     color: var(--btn-text-color);
     font-weight: 700;
@@ -579,6 +591,7 @@ img {
 
 .f-left {
     margin-right: 70px;
+    flex-grow: 1;
 }
 
 .footer-logo {
@@ -915,12 +928,18 @@ img {
     letter-spacing: 0.03em;
 
     color: var(--btn-secondary-color);
+    margin-bottom: 12px;
 
 }
 
 .form-field {
-    margin-top: 10px;
-    margin-bottom: 4px;
+
+    margin-bottom: 10px;
+}
+
+.form-field.check {
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 .modal-form {}
@@ -931,6 +950,7 @@ img {
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     background-color: transparent;
+    padding: 12px 11px 12px 40px;
 
 }
 
@@ -950,30 +970,40 @@ img {
 
 
 .modal-comment {
+    display: block;
     width: 100%;
     height: 120px;
     padding: 0;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
+    padding: 16px 12px;
+
+}
+
+.modal-comment::placeholder {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+
 }
 
 .input-wrap {
     position: relative;
 }
 
-.modal-input {
-    padding-left: 30px;
-
-}
+.modal-input {}
 
 .modal-input:hover,
-.modal-input:focus {
+.modal-input:focus,
+.modal-comment:hover,
+.modal-comment:focus {
     border-color: var(--accent-color);
 }
 
 .icon-name {
     position: absolute;
-    left: 5px;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -1005,6 +1035,7 @@ img {
     width: 16px;
     height: 15px;
     border: 1px solid var(--text-color);
+    border-radius: 4px;
     margin-right: 7px;
     cursor: pointer;
     transition:
@@ -1052,6 +1083,7 @@ img {
 
 .button-submit-privacy:hover,
 .button-submit-privacy:focus {
+    cursor: pointer;
     background-color: var(--btn-hover);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15)
 }
